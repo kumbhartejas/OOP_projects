@@ -1,8 +1,8 @@
 
 class Atm: 
     def __init__(self):
-        self.pin=""
-        self.balance=0
+        self.__pin=""
+        self.__balance=0
         self.menu()
 
     
@@ -32,7 +32,7 @@ class Atm:
 
     def check_pin(self):
       temp=input("Enter your pin:")
-      if temp==self.pin:
+      if temp==self.__pin:
          return True
       else:
          print("Incorrect password")
@@ -44,7 +44,7 @@ class Atm:
 
         if a==b:
          print("Pin set successfully")
-         self.pin=a
+         self.__pin=a
         else:
          print("pin does not match")
         
@@ -52,7 +52,7 @@ class Atm:
         print("\n Deposit money")
         if self.check_pin():
            amount=int(input("Enter your amount: "))
-           self.balance=self.balance+amount
+           self.__balance=self.__balance+amount
            print("Deposit successfully")
         
 
@@ -61,8 +61,8 @@ class Atm:
        print("\n Withdraw money")
        if self.check_pin():
           a=int(input("Amount: "))
-          if a<=self.balance:
-             self.balance=self.balance-a
+          if a<=self.__balance:
+             self.__balance=self.__balance-a
              print(f"Rs{a} withdraw successfully")
           else:
              print("Insufficient balance")            
@@ -71,7 +71,7 @@ class Atm:
     def check_balance(self):
         print("\n Check balance")
         if self.check_pin():
-           print(self.balance)
+           print(self.__balance)
         
      
 

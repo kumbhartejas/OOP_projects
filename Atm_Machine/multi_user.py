@@ -1,7 +1,7 @@
 class Atm :
 
     def __init__(self):
-        self.users={}
+        self.__users={}
         self.menu()
     
     def menu(self):
@@ -39,14 +39,14 @@ class Atm :
         print("\n Create new Account")
 
         Acc_no=input("Enter New Account no: ")
-        if Acc_no in self.users:
+        if Acc_no in self.__users:
            print("This User Id already exists")
            return
         
         pin1=input("Enter New pin: ")
         pin2=input("Re-Enter your Pin: ")
         if pin1==pin2:
-           self.users[Acc_no]={"pin":pin1,"balance":0}
+           self.__users[Acc_no]={"pin":pin1,"balance":0}
            print("User created successfully")
         else:
            print("Pin does not match")
@@ -56,7 +56,7 @@ class Atm :
     def check_user(self):
           Acc_no=input("Enter your Account no:")
           pas=input("Enter your password:")
-          if Acc_no in self.users and self.users[Acc_no]["pin"] == pas:
+          if Acc_no in self.__users and self.__users[Acc_no]["pin"] == pas:
              print("login successfully\n")
              return Acc_no
           else:
@@ -71,7 +71,7 @@ class Atm :
        user=self.check_user()
        if user:
           depo=int(input("Enter Amount: "))
-          self.users[user]["balance"]+=depo
+          self.__users[user]["balance"]+=depo
           print(f"Rs {depo} deposited successfully")
                 
 
@@ -80,8 +80,8 @@ class Atm :
        user=self.check_user()
        if user:
           take=int(input("Enter Amount: "))
-          if take<=self.users[user]["balance"]:
-             self.users[user]["balance"]-=take
+          if take<=self.__users[user]["balance"]:
+             self.__users[user]["balance"]-=take
              print(f"Rs {take} Withdraw successfully")
           else:
            print("Insufficient Balance") 
@@ -91,7 +91,7 @@ class Atm :
        print("\n Check Balance")
        user=self.check_user()
        if user:
-          print(f"Your current balance is {self.users[user]["balance"]} Rs")
+          print(f"Your current balance is {self.__users[user]["balance"]} Rs")
 
 
 

@@ -2,30 +2,30 @@ import streamlit as st
 
 class Atm:
     def __init__(self):
-        self.pin = ""
-        self.balance = 0
+        self.__pin = ""
+        self.__balance = 0
 
     def check_pin(self, temp):
-        return temp == self.pin
+        return temp == self.__pin
 
     def create_pin(self, a, b):
         if a == b:
-            self.pin = a
+            self.__pin = a
             return "✅ Pin set successfully"
         else:
             return "❌ Pin does not match"
 
     def deposit(self, pin, amount):
         if self.check_pin(pin):
-            self.balance += amount
+            self.__balance += amount
             return f"✅ Rs {amount} deposited successfully"
         else:
             return "❌ Incorrect pin"
 
     def withdraw(self, pin, amount):
         if self.check_pin(pin):
-            if amount <= self.balance:
-                self.balance -= amount
+            if amount <= self.__balance:
+                self.__balance -= amount
                 return f"✅ Rs {amount} withdrawn successfully"
             else:
                 return "❌ Insufficient balance"
@@ -34,7 +34,7 @@ class Atm:
 
     def check_balance(self, pin):
         if self.check_pin(pin):
-            return f"💰 Your balance is Rs {self.balance}"
+            return f"💰 Your balance is Rs {self.__balance}"
         else:
             return "❌ Incorrect pin"
 
