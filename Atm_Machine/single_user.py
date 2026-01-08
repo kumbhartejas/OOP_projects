@@ -14,7 +14,9 @@ class Atm:
                          2.Enter 2 to deposit
                          3.Enter 3 to withdraw
                          4.Enter 4 to check balance
-                         5.Enter 5 to exit
+                         5.Enter 5 to change pin
+                         5.Enter 6 to exit
+                        
      """)
          if user_input=="1":
             self.create_pin()
@@ -25,10 +27,12 @@ class Atm:
          elif user_input=='4':
             self.check_balance()
          elif user_input=="5":
+            self.set_pin()
+         elif user_input=="6":
             break
-        
-        
-
+         elif user_input=="7":
+            self.get_pin()
+            
 
     def check_pin(self):
       temp=input("Enter your pin:")
@@ -72,11 +76,22 @@ class Atm:
         print("\n Check balance")
         if self.check_pin():
            print(self.__balance)
-        
+
+    def get_pin(self):
+       print(self.__pin)
      
+    def set_pin(self):
+       if self.check_pin():
+         new_pin=input("Enter New pin") 
+         reenter=input("Re-enter New pin") 
+         if new_pin==reenter:
+          self.__pin=new_pin
+          print("Pin changed successfully")
+         else:
+            print("pin not match")
 
 sbi=Atm()
 
- 
+
   
 
