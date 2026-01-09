@@ -111,13 +111,13 @@ with col2:
         
     elif menu=="Deposit money":
         st.subheader("Deposit money")
-        amount=st.number_input("Enter Your Amount")
+        amount=st.number_input("Enter Your Amount",min_value=1)
         if st.button("Deposit"):
             st.success(atm.deposit(amount))
 
     elif menu=="Withdraw Money":
         st.subheader("Withdraw Money")
-        amount=st.number_input("Enter Your Amount")
+        amount=st.number_input("Enter Your Amount",min_value=1)
         if st.button("Withdraw"):
             st.success(atm.withdraw(amount))
 
