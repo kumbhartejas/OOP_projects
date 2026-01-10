@@ -62,7 +62,11 @@ class Atm:
 
 #____________________________________________________________________________________________________
 
-st.title("---------SBI ATM  Simulator---------")
+st.markdown(
+    "<h1 style='text-align: center; color: navy;'>🏦 ATM Simulator 🏦</h1>",
+    unsafe_allow_html=True
+)
+
 
 
 if "atm" not in st.session_state:
