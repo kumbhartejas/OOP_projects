@@ -75,11 +75,6 @@ if "atm" not in st.session_state:
 atm = st.session_state["atm"]
 
 
-
-
-
-st.space()
-st.space()
 col1,col2=st.columns([1,3])
 
 with col1:
@@ -91,6 +86,7 @@ with col1:
     )
     if st.button("Logout"):
             st.success(atm.logout())
+            st.rerun()
     
 
 
