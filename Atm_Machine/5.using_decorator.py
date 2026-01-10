@@ -8,17 +8,17 @@ class Atm:
             print("user alreay exist")
         if pin1==pin2:
             self.__users[id]={"pin":pin1,"balance":0}
-            print("user created successfully")
+            print("Account created successfully\n")
         else:
-            print("password does not match")
+            print("password does not match\n")
     
     def login(self,id,pin1):
         if id in self.__users and self.__users[id]["pin"]==pin1:
             self.__current_user=id
-            print("login successfully")
+            print("login successfully\n")
             return True
         else:
-            print("Invalid credentials")
+            print("Invalid credentials\n")
         
     def logout(self):
         self.__current_user=None
@@ -26,8 +26,10 @@ class Atm:
     def login_required(func):
         def wrapper(self, *args, **kwargs):
             if self.__current_user is None:
-                print("Please login first.")
+                print("Please login first.\n")                
                 return
+            else:
+                print(f"User:{self.__current_user}")
             func(self, *args, **kwargs)
         return wrapper
     
@@ -35,7 +37,7 @@ class Atm:
     def deposit(self,amount):
         if amount>0:
             self.__users[self.__current_user]["balance"]+=amount
-            print(f"Rs {amount} withdraw successfully")
+            print(f"Rs {amount} deposited successfully \n")
         else:
             print("Min 1 rs")
     
@@ -43,19 +45,19 @@ class Atm:
     def withdraw(self,amount):
         if amount<=self.__users[self.__current_user]["balance"]:
             self.__users[self.__current_user]["balance"]-=amount
-            print(f"Rs {amount} withdraw successfully")
+            print(f"Rs {amount} withdraw successfully\n")
         else:
-            print("Insufficient balance")
+            print("Insufficient balance\n")
     
     @login_required
     def check_balance(self):
-        print(self.__users[self.__current_user]["balance"])
+        print(f"Your current balance is Rs {self.__users[self.__current_user]["balance"] } \n")
 
     @login_required
     def change_password(self,new_pin1,new_pin2):
         if new_pin1==new_pin2:
             self.__users[self.__current_user]["pin"]=new_pin1
-            print("new password set successfully")
+            print("new password set successfully\n")
 
     
 
