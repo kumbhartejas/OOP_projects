@@ -1,0 +1,6 @@
+3 class book,admin/librarian,user
+book - id,name,author,available  method- borrow,return
+user - name,id,email  method -borrow,return,dates,view_borrowed book
+admin - add,remove,edit,delete,view members
+login -user and admin with 2 separate menu
+future dev- store in file or sql db,genre,admin profile,search
