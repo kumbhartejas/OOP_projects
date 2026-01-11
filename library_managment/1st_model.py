@@ -168,20 +168,7 @@ class User(Book):
 
 #))))))))))))))
 
-
-
-
-#books cart ((((((((((((((((((
-   #  @check_login
-   #  def issue_mybook(self, library: Library, bid):
-   #      if bid in library.books:
-   #          book = library.books[bid]
-   #          if self.current_user not in self.cart:
-   #                  self.cart[self.current_user] = []
-   #          self.cart[self.current_user].append(bid)
-
-   #      else:
-   #          print("Book_id does not exist\n")
+#(((((((((
 
     @check_login
     def issue_mybook(self, library: Library, bid):
